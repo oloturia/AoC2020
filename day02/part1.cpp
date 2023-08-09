@@ -2,35 +2,36 @@
 #include <fstream>
 #include <algorithm>
 
+using std::cout; using std::string; using std::ifstream; using std::getline;
 
-int elab (std::string filename);
+int elab (string filename);
 
 int main(int argc, char**argv) {
 	int solution;
-	if (sizeof(argv)/sizeof(*argv) > 1 ) {
+	if (argc >= 2) {
 		solution =  elab(argv[1]);
 	} else {
 		solution = elab("input");
 	}
-	std::cout << solution << '\n';
+	cout << solution << '\n';
 }
 
-int elab(std::string filename) {
-	std::ifstream file(filename);
-	std::string test;
-	std::string password;
-	std::string temp;
-	std::string delimeter_1 = "-";
-	std::string delimeter_2 = ":";
+int elab(string filename) {
+	ifstream file(filename);
+	string test;
+	string password;
+	string temp;
+	string delimeter_1 = "-";
+	string delimeter_2 = ":";
 	
 	int total = 0;
 	
 	
-	while (std::getline(file, temp)) {
+	while (getline(file, temp)) {
 		int mincount = atoi(temp.substr(0, temp.find(delimeter_1)).c_str());
 		int maxcount = atoi(temp.substr(temp.find(delimeter_1)+1, temp.find(" ")-temp.find(delimeter_1)).c_str());
 		test = temp.substr(temp.find(delimeter_2)-1,1).c_str();
-		std::string password = temp.substr(temp.find(delimeter_2)+2,temp.length()).c_str();
+		string password = temp.substr(temp.find(delimeter_2)+2,temp.length()).c_str();
 		int count = 0;
 		for(u_int i = 0;i < password.length(); i++) {
 			if (password[i] == test[0]) {
