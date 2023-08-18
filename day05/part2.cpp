@@ -5,7 +5,7 @@
 
 using std::cout; using std::string; using std::ifstream; using std::getline;
 
-int elab (std::string filename);
+int elab (string filename);
 
 int main(int argc, char**argv) {
 	int solution;
