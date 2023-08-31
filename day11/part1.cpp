@@ -15,7 +15,7 @@ int main(int argc, char**argv) {
 	} else {
 		solution = elab("input");
 	}
-	std::cout << solution << '\n';
+	cout << solution << '\n';
 }
 
 string check_boundary(int boundx, int boundy, vector<string> mat) {

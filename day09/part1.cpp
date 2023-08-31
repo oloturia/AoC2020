@@ -13,7 +13,7 @@ int main(int argc, char**argv) {
 	} else {
 		solution = elab("input");
 	}
-	std::cout << solution << '\n';
+	cout << solution << '\n';
 }
 
 string elab(string filename) {
