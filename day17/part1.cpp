@@ -3,9 +3,9 @@
 #include <algorithm>
 #include <tuple>
 #include <map>
-#include <vector>
 
-using std::cout; using std::string; using std::ifstream; using std::getline; using std::tuple; using std::map; using std::vector; using std::get;
+
+using std::cout; using std::string; using std::ifstream; using std::getline; using std::tuple; using std::map; using std::get;
 
 int elab (string filename);
 
