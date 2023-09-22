@@ -47,7 +47,6 @@ unsigned long elab(string filename) {
 				op2 = 0;
 				indElab = 0;
 				startInd = 0;
-				//cout << toElab << '\n';
 				while(true) {
 					if(toElab[indElab] == '+') {
 						tempOp = "";
@@ -74,15 +73,12 @@ unsigned long elab(string filename) {
 							}
 						}						
 						op2 = atol(tempOp.c_str());
-						//cout << op1 << '+' << op2 <<'=';
 						op1 = op1+op2;
-						//cout << op1 <<'\n';
 						if (startInd == 0) {
 							toElab = std::to_string(op1) + toElab.substr(indElab);
 						} else {
 							toElab = toElab.substr(0,startInd+1) + std::to_string(op1) + toElab.substr(indElab);
 						}
-						//cout << toElab << '\n';
 						indElab = 0;
 						
 					} else {
@@ -122,16 +118,13 @@ unsigned long elab(string filename) {
 							}
 						}						
 						op2 = atol(tempOp.c_str());
-												//cout << op1 << '*' << op2 <<'=';
 						op1 = op1*op2;
-												//cout << op1 <<'\n';
 												
 						if (startInd == 0) {
 							toElab = std::to_string(op1) + toElab.substr(indElab);
 						} else {
 							toElab = toElab.substr(0,startInd+1) + std::to_string(op1) + toElab.substr(indElab);
 						}
-						//cout << toElab << '\n';
 						indElab = 0;
 						
 					} else {
@@ -149,7 +142,6 @@ unsigned long elab(string filename) {
 				break;
 			}
 		}
-				//cout << temp << " ====================\n";
 
 		result += atol(temp.c_str());
 	}
