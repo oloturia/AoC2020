@@ -46,6 +46,9 @@ int elab(string filename) {
 	unsigned int ir;
 	unsigned int is;
 	
+	grammar["8"] = "42+";
+	grammar["11"] = "42 31 | 42 42 31 31 | 42 42 42 31 31 31 | 42 42 42 42 31 31 31 31 | 42 42 42 42 42 31 31 31 31 31 | 42 42 42 42 42 42 42 31 31 31 31 31 31 31";
+	
 	while(found) {
 		found = false;
 		for (unsigned int i = 0; i < regex.length(); i++) {
