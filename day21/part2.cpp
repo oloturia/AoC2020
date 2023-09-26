@@ -5,15 +5,15 @@
 #include <set>
 #include <algorithm>
  
-using std::cout; using std::string; using std::ifstream; using std::getline; using std::map; using std::set;
+using std::cout; using std::string; using std::ifstream; using std::getline; using std::map; using std::set; using std::multimap;
  
-int elab (string filename);
+string elab (string filename);
 void parseLine(string line);
 map<string,set<string>> allergens;
-map<string,int> ingredients;
+
 
 int main(int argc, char**argv) {
-	int solution;
+	string solution;
 	if (argc >= 2) {
 		solution =  elab(argv[1]);
 	} else {
@@ -30,7 +30,6 @@ void parseLine(string line) {
 	while (line[index] != '(') {
 		if (line[index] == ' ') {
 			templine.insert(tempname);
-			ingredients[tempname] ++;
 			tempname = "";
 		} else {
 			tempname = tempname + line[index];
@@ -60,7 +59,7 @@ void parseLine(string line) {
 	}
 }
  
-int elab(string filename) {
+string elab(string filename) {
 	ifstream file(filename);
 	string temp;
  
@@ -75,6 +74,7 @@ int elab(string filename) {
 	set<string> tempallergens;
 	string stem;
 
+	map<string,string> found_allergens;
 	
 	while(n_allergens != n_found) {
 		for (auto it1 = allergens.begin(); it1 != allergens.end(); ++it1) {		
@@ -82,7 +82,7 @@ int elab(string filename) {
 				n_found ++;
 				for(auto itb = it1->second.begin(); itb != it1->second.end(); ++itb) {
 					stem = *itb;
-					ingredients[stem] = 0;
+					found_allergens[it1->first] = *itb;
 				}
 				for (auto it2 = allergens.begin(); it2 != allergens.end(); ++it2) {
 					tempallergens.clear();
@@ -96,10 +96,11 @@ int elab(string filename) {
 			}
 		}
 	}
-
-	int result = 0;
-	for (auto it = ingredients.begin(); it != ingredients.end(); ++it) {
-		result += it->second;
+	
+	string result = "";
+	for(auto it = found_allergens.begin(); it != found_allergens.end(); ++it) {
+		result = result + it->second + ",";
 	}
+	result = result.substr(0,result.length()-1)+'.';
 	return result;
 }
