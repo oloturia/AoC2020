@@ -18,19 +18,8 @@ int main(int argc, char**argv) {
 
 int elab(string filename) {
 	ifstream file(filename);
-
-	/*int num_lines = count(istreambuf_iterator<char>(file),istreambuf_iterator<char>(),'\n');
-	file.clear();
-	file.seekg(0);
-	int line[num_lines];
-	*/
 	string temp;
-	/*
-	for (int i = 0; i < num_lines+1; i++) {
-		getline(file,temp);
-		line[i] = atoi(temp.c_str());	
-	}
-	*/
+
 	while (getline(file,temp)){;
 		
 	}
