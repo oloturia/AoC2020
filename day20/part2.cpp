@@ -23,15 +23,6 @@ class Tile {
 		vector<string> boundaries;
 		bool mapped = false;
 		
-		void dump(){
-			cout << "ID:" << id;
-			cout << " boundaries:"<< boundaries.size();
-			for (unsigned int i = 0; i < boundaries.size(); i++) {
-				cout << ',' << boundaries[i];
-			}
-			cout << " mapped:" << mapped << '\n';
-			return;
-		}
 		
 		string showLine(unsigned int line) {
 			string tempLine;
@@ -63,16 +54,6 @@ class Tile {
 			return tbound;
 		}
 		
-		string printTile() {
-			cout << "==========\n";
-			for(int x = 0; x < 10; x++) {
-				for(int y = 0; y < 10; y++) {
-					cout << matrix[x][y];
-				}
-				cout << '\n';
-			} 
-			return id+'\n';
-		}
 		
 		void flip() {
 			char new_matrix[10][10];
